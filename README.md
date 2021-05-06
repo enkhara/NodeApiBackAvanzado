@@ -10,6 +10,12 @@ https://github.com/bbc/REST-API-example/blob/master/README.md
 npm install
 ```
 
+Copy .env.example to .env and review the config
+
+```
+cp .env.example .env
+```
+
 ### Seed Data Base
 
 ```
