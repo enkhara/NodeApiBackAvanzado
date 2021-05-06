@@ -1,0 +1,22 @@
+@import url('./variables.css');
+
+h1{
+    font-size: 9rem;
+
+}
+
+body{
+    background-color: var(--papaya);
+    max-width: 80%;
+    max-width: 80%;
+    
+}
+
+h2{
+    font-size: 5rem;
+}
+
+h2, h1{
+    margin: 1rem;
+    color: white;
+}

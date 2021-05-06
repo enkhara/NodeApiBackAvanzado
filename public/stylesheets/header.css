@@ -1,0 +1,12 @@
+header{
+    background: var(--papaya);
+    display: flex;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    height: var(--header);
+    width: 100%;
+    color: white;
+}

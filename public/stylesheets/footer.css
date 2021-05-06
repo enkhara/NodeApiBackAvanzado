@@ -1,0 +1,24 @@
+
+footer {
+    background: var(--papaya);
+    
+    width: 100%;
+    height: var(--footer);
+    padding: .5rem;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    color: white;
+
+    border-top:solid .2rem white;
+}
+
+footer > p {
+    text-align: center;
+}
+
+footer > p > a {
+    font-size: 1rem;
+}

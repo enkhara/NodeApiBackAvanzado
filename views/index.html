@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenid@s a <%= title %></h1>
+    </header>
+    <main>
+      <h1 class="daysAction">Que deseas comprar hoy?</h1>
+      <section>
+        <div class = "grid-container" id="grid-container">
+          <%for (advertisement of advertisements){ %>
+            <article class = "grid-item">
+              <p class="images"><img src="/images/<%= advertisement.image %>"></p>
+                <li><h2 class="price"> <%= advertisement.price %> € </h2></li>
+                <li> <%= advertisement.name %></li>
+                <li> <%= advertisement.sale %></li>
+                <li> <%= advertisement.tags %></li>
+            </article>
+          <% } %>
+        </div>
+      </section>
+    </main>
+  </body>
+  <footer>
+      <p>© 2020 <%= title %>. All Rights Reserved </p>
+  </footer>
+</html>
