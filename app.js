@@ -4,10 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
 var app = express();
 //connect to db
-require('./lib/connectToMongoose');
+require('./model/connectToMongoose');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,35 +29,33 @@ app.use('/api/advertisements', require('./routes/api/advertisements'));
  */
 
 //routers
-app.use('/',      require('./routes/index'));
-
+app.use('/', require('./routes/index'));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function (req, res, next) {
+	next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  
-  res.status(err.status || 500);
+app.use(function (err, req, res, next) {
+	res.status(err.status || 500);
 
-  if (isApiRequest(req)) {
-    res.json({ error: err.message});
-    return
-  }
+	if (isApiRequest(req)) {
+		res.json({ error: err.message });
+		return;
+	}
 
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.render('error');
+	// render the error page
+	res.render('error');
 });
 
 //comprobar de donde viene la peticion
 function isApiRequest(req) {
-  return req.originalUrl.indexOf('/api/') === 0;
+	return req.originalUrl.indexOf('/api/') === 0;
 }
 
 module.exports = app;
