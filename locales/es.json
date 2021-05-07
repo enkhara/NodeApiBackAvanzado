@@ -2,5 +2,9 @@
 	"": "",
 	"Que deseas comprar hoy?": "Que deseas comprar hoy?",
 	"Bienvenid@s a {{title}}": "Bienvenid@s a {{title}}",
-	" © 2020 {{title}} All Rights Reserved": " © 2020 {{title}} Todos los derechos reservados"
+	" © 2020 {{title}} All Rights Reserved": " © 2020 {{title}} Todos los derechos reservados",
+	"¡Inicia sesión!": "¡Inicia sesión!",
+	"Email": "Email",
+	"Password": "Password",
+	"Entrar": "Entrar"
 }
