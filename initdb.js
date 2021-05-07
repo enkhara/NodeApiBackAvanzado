@@ -1,17 +1,38 @@
 'use strict';
 
-//require('dotenv').config();
+require('dotenv').config();
 
-// //load modules
-// const mongoose = require('mongoose');
-// const { dropCollection, get } = require('./model/connectToMongoose');
-// const testAdvertisements = require('./advertisements.json');
-// //load model
-// const Advertisement = require('./model/Advertisement');
+//load modules
+//const mongoose = require('mongoose');
+//const { dropCollection, get } = require('./model/connectToMongoose');
+const testAdvertisements = require('./advertisements.json');
+//load model
+//const Advertisement = require('./model/Advertisement');
 
-const { mongoose, connectMongoose, User, Advertisement } = require('./models');
+const { mongoose, connectMongoose, User, Advertisement } = require('./model');
 
-seedDB().catch((err) => console.log(err));
+//seedDB().catch((err) => console.error(err));
+main().catch((err) => console.error(err));
+
+async function main() {
+	await initUsers();
+	await seedDB();
+
+	mongoose.connection.close();
+	console.log('Disconnet to db');
+}
+
+async function initUsers() {
+	const { deletedCount } = await User.deleteMany();
+	console.log(`Delete ${deletedCount} user${deletedCount > 1 ? 's' : ''}`);
+
+	const result = await User.insertMany({
+		email: 'user@example.com',
+		password: '1234',
+	});
+	console.log(result);
+	console.log(`Insert ${result.length} user${result.length > 1 ? 's' : ''}`);
+}
 
 async function getAdvertisements() {
 	let totalCreated = 0;
@@ -28,10 +49,9 @@ async function seedDB() {
 	await mongoose.connection.dropCollection('advertisements', function () {
 		console.log('dropCollection success');
 	});
-	const adverstisementCreated = await getAdvertisements();
+	const advertisementCreated = await getAdvertisements();
 	console.log(
-		`Has been created ${adverstisementCreated} advertisements successful`
+		`Has been created ${advertisementCreated} advertisements successful`
 	);
-	mongoose.connection.close();
-	console.log('Disconnet to db');
+	//mongoose.connection.close();
 }
