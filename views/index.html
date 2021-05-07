@@ -13,13 +13,13 @@
     <h1>
       <%= __('Bienvenid@s a {{title}}', {title}) %>
     </h1>
-
-    <% getLocales().forEach( locale=> { %>
-      <a href='/change-locale/<%= locale %>'>
-        <%= locale %>
-      </a> &nbsp;
-      <% }) %>
-
+    <div class="languages">
+      <% getLocales().forEach( locale=> { %>
+        <a href='/change-locale/<%= locale %>' class='change-language'>
+          <%= locale %>
+        </a>
+        <% }) %>
+    </div>
 
   </header>
   <main>

@@ -1,12 +1,25 @@
-header{
-    background: var(--papaya);
-    display: flex;
+header {
+	background: var(--papaya);
+	display: flex;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    
-    height: var(--header);
-    width: 100%;
-    color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	height: var(--header);
+	width: 100%;
+	color: white;
+}
+
+.change-language {
+	text-decoration: none;
+	color: white;
+
+	margin-right: 0;
+}
+
+.languages {
+	position: absolute;
+	top: 32px;
+	right: 60px;
 }
