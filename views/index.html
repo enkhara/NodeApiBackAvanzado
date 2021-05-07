@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/index.css' />
-  </head>
-  <body>
-    <header>
-      <h1>Bienvenid@s a <%= title %></h1>
-    </header>
-    <main>
-      <h1 class="daysAction">Que deseas comprar hoy?</h1>
-      <section>
-        <div class = "grid-container" id="grid-container">
-          <%for (advertisement of advertisements){ %>
-            <article class = "grid-item">
-              <p class="images"><img src="/images/<%= advertisement.image %>"></p>
-                <li><h2 class="price"> <%= advertisement.price %> € </h2></li>
-                <li> <%= advertisement.name %></li>
-                <li> <%= advertisement.sale %></li>
-                <li> <%= advertisement.tags %></li>
-            </article>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/index.css' />
+</head>
+
+<body>
+  <header>
+    <h1>
+      <%= __('Bienvenid@s a {{title}}', {title}) %>
+    </h1>
+
+    <% getLocales().forEach( locale=> { %>
+      <a href='/change-locale/<%= locale %>'>
+        <%= locale %>
+      </a> &nbsp;
+      <% }) %>
+
+
+  </header>
+  <main>
+    <h1 class="daysAction">
+      <%= __('Que deseas comprar hoy?') %>
+    </h1>
+    <section>
+      <div class="grid-container" id="grid-container">
+        <%for (advertisement of advertisements){ %>
+          <article class="grid-item">
+            <p class="images"><img src="/images/<%= advertisement.image %>"></p>
+            <li>
+              <h2 class="price">
+                <%= advertisement.price %> €
+              </h2>
+            </li>
+            <li>
+              <%= advertisement.name %>
+            </li>
+            <li>
+              <%= advertisement.sale %>
+            </li>
+            <li>
+              <%= advertisement.tags %>
+            </li>
+          </article>
           <% } %>
-        </div>
-      </section>
-    </main>
-  </body>
-  <footer>
-      <p>© 2020 <%= title %>. All Rights Reserved </p>
-  </footer>
+      </div>
+    </section>
+  </main>
+</body>
+<footer>
+  <p>
+    <%= __( ' © 2020 {{title}} All Rights Reserved' , {title}) %>
+
+  </p>
+</footer>
+
 </html>

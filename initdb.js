@@ -1,11 +1,15 @@
 'use strict';
 
-//load modules
-const mongoose = require('mongoose');
-const { dropCollection, get } = require('./model/connectToMongoose');
-const testAdvertisements = require('./advertisements.json');
-//load model
-const Advertisement = require('./model/Advertisement');
+//require('dotenv').config();
+
+// //load modules
+// const mongoose = require('mongoose');
+// const { dropCollection, get } = require('./model/connectToMongoose');
+// const testAdvertisements = require('./advertisements.json');
+// //load model
+// const Advertisement = require('./model/Advertisement');
+
+const { mongoose, connectMongoose, User, Advertisement } = require('./models');
 
 seedDB().catch((err) => console.log(err));
 
