@@ -1,0 +1,30 @@
+<% include header.html %>
+
+    <main class="form">
+        <form class="register-form" novalidate>
+            <h1 class="form-title">
+                <%= __('¡Inicia sesión!') %>
+            </h1>
+            <div class="user-form">
+                <label for="user" class="user-label">
+                    <%= __('Email') %>
+                </label>
+                <input class="user-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="text" name="email"
+                    id="email" required>
+            </div>
+            <div class="password-form">
+                <label for="password" class="password-label">
+                    <%= __('Password') %>
+                </label>
+                <input class="password-input" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    name="password" id="password" required>
+            </div>
+            <div class="button-formDiv">
+
+                <button class="button">
+                    <%= __('Entrar') %>
+                </button>
+            </div>
+        </form>
+
+    </main <% include footer.html %>

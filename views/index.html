@@ -1,27 +1,5 @@
-<!DOCTYPE html>
-<html>
+<% include header.html %>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/index.css' />
-</head>
-
-<body>
-  <header>
-    <h1>
-      <%= __('Bienvenid@s a {{title}}', {title}) %>
-    </h1>
-    <div class="languages">
-      <% getLocales().forEach( locale=> { %>
-        <a href='/change-locale/<%= locale %>' class='change-language'>
-          <%= locale %>
-        </a>
-        <% }) %>
-    </div>
-
-  </header>
   <main>
     <h1 class="daysAction">
       <%= __('Que deseas comprar hoy?') %>
@@ -50,12 +28,6 @@
       </div>
     </section>
   </main>
-</body>
-<footer>
-  <p>
-    <%= __( ' © 2020 {{title}} All Rights Reserved' , {title}) %>
+  </body>
 
-  </p>
-</footer>
-
-</html>
+  <% include footer.html %>
