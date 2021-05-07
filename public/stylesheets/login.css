@@ -1,17 +1,16 @@
 .register-form {
 	display: grid;
-	max-width: 60%;
+	max-width: 70%;
 	height: 90%;
 	background-color: white;
 	margin: auto;
 	overflow: hidden;
 
 	border-radius: 1rem;
-	border: 0.5rem solid var(--shadow-color);
 }
 
 .form-title {
-	color: var(--pink-color);
+	color: white;
 	text-align: center;
 	padding-top: 1rem;
 }
@@ -30,7 +29,7 @@ label {
 	display: block;
 	font-size: 1.2rem;
 	padding: 1rem 0 0.2rem 0.5rem;
-	color: var(--grey-color);
+	color: white;
 }
 
 input[name='email'],
@@ -39,10 +38,9 @@ input[name='password'] {
 	display: block;
 	width: 90%;
 	padding: 0.5rem 0.5rem;
-	background: var(--pink-color);
+	background: white;
 	opacity: 0.6;
-	color: white;
-	border-bottom: solid 0.1rem var(--blue-color);
+	color: var(--papaya);
 }
 
 input[type='submit'] {
@@ -50,8 +48,6 @@ input[type='submit'] {
 	margin: auto;
 	padding: 0.5rem 3rem;
 	border-radius: 10px;
-	background: var(--orange-color);
-	font-family: titulos;
 }
 
 .formulario > p {
@@ -60,4 +56,16 @@ input[type='submit'] {
 
 .formulario > p > a {
 	font-size: 0.8rem;
+}
+
+.button {
+	display: block;
+	margin: auto;
+	font-size: 1rem;
+	margin-top: 2rem;
+	font-size: 1.5rem;
+	color: white;
+	background-color: var(--papaya);
+	padding: 0.5rem;
+	border-radius: 10px;
 }
