@@ -13,6 +13,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
+// declaramos una variable global para todas las vistas
+app.locals.title = 'NodePop';
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +36,7 @@ app.use(i18n.init);
 //routers
 app.use('/', require('./routes/index'));
 app.use('/change-locale', require('./routes/change-locale'));
+app.use('/login', require('./controllers/loginController'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
