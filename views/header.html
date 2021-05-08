@@ -23,11 +23,24 @@
                 <% }) %>
         </div>
         <ul class='menu-options'>
-            <li class='menu-item'>
-                <a class='menu-link' href="/login">
-                    <%= __('Login') %>
-                </a>
-            </li>
+            <% if (!session.userLogged) { %>
+                <li class='menu-item'>
+                    <a class='menu-link' href="/login">
+                        <%= __('Login') %>
+                    </a>
+                </li>
+                <% } else {%>
+                    <li class='menu-item'>
+                        <a class='menu-link' href="/logout">
+                            <%= __('Logout') %>
+                        </a>
+                    </li>
+                    <li class='menu-item'>
+                        <a class='menu-link' href="/private">
+                            <%= __('Profile') %>
+                        </a>
+                    </li>
+                    <% } %>
         </ul>
 
     </header>

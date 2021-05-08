@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const sessionAuth = require('./lib/sessionAuthMiddleware');
-
+const loginController = require('./controllers/loginController');
 var app = express();
 //connect to db
 require('./model/connectToMongoose');
@@ -49,14 +49,23 @@ app.use(
 );
 
 /**
+ * session for all views
+ */
+app.use((req, res, next) => {
+	res.locals.session = req.session;
+	next();
+});
+
+/**
  * RUTAS del WEBSITE
  */
 
 //routers
 app.use('/', require('./routes/index'));
 app.use('/change-locale', require('./routes/change-locale'));
-app.get('/login', require('./controllers/loginController').index);
-app.post('/login', require('./controllers/loginController').post);
+app.get('/login', loginController.index);
+app.post('/login', loginController.post);
+app.get('/logout', loginController.logout);
 app.get(
 	'/private',
 	sessionAuth,

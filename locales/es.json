@@ -4,10 +4,12 @@
 	"Bienvenid@s a {{title}}": "Bienvenid@s a {{title}}",
 	" © 2020 {{title}} All Rights Reserved": " © 2020 {{title}} Todos los derechos reservados",
 	"¡Inicia sesión!": "¡Inicia sesión!",
-	"Email": "Email",
-	"Password": "Password",
+	"Email": "Correo electrónico",
+	"Password": "Contraseña",
 	"Entrar": "Entrar",
 	"Login": "Login",
 	"Bienvenid@": "Bienvenid@",
-	"Zona privada": "Zona privada"
+	"Zona privada": "Zona privada",
+	"Logout": "Desconectar",
+	"Profile": "Perfil"
 }

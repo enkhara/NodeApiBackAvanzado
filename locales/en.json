@@ -8,6 +8,8 @@
 	"Password": "Password",
 	"Entrar": "Sign in",
 	"Login": "Login",
-	"Bienvenid@": "Bienvenid@",
-	"Zona privada": "Zona privada"
+	"Bienvenid@": "Welcome",
+	"Zona privada": "Private Zone",
+	"Logout": "Logout",
+	"Profile": "Profile"
 }
