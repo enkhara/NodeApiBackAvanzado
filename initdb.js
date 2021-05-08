@@ -2,12 +2,7 @@
 
 require('dotenv').config();
 
-//load modules
-//const mongoose = require('mongoose');
-//const { dropCollection, get } = require('./model/connectToMongoose');
 const testAdvertisements = require('./advertisements.json');
-//load model
-//const Advertisement = require('./model/Advertisement');
 
 const { mongoose, connectMongoose, User, Advertisement } = require('./model');
 
@@ -28,7 +23,7 @@ async function initUsers() {
 
 	const result = await User.insertMany({
 		email: 'user@example.com',
-		password: '1234',
+		password: await User.hashPassword('1234'),
 	});
 	console.log(result);
 	console.log(`Insert ${result.length} user${result.length > 1 ? 's' : ''}`);

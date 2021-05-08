@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var app = express();
 //connect to db
@@ -29,6 +30,23 @@ app.use('/api/advertisements', require('./routes/api/advertisements'));
 // Setup de i18n
 const i18n = require('./lib/i18nConfigure');
 app.use(i18n.init);
+
+/**
+ *  Middleware de Gestion de sesiones del websiteExpress session
+ */
+app.use(
+	session({
+		name: 'nodeapi-session',
+		secret: 'dfkjs23424E$EFWFDFSFSsjfkjswe654',
+		saveUninitialized: true,
+		resave: false,
+		cookie: {
+			secure: process.env.NODE_ENV !== 'development',
+			maxAge: 1000 * 60 * 60 * 24 * 2,
+		},
+	})
+);
+
 /**
  * RUTAS del WEBSITE
  */
@@ -38,6 +56,7 @@ app.use('/', require('./routes/index'));
 app.use('/change-locale', require('./routes/change-locale'));
 app.get('/login', require('./controllers/loginController').index);
 app.post('/login', require('./controllers/loginController').post);
+app.get('/private', require('./controllers/privateController').index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
