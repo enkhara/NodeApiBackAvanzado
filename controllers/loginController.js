@@ -1,6 +1,7 @@
 'use strict';
 
 const { User } = require('../model');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
 	//GET /login
@@ -32,6 +33,44 @@ module.exports = {
 				_id: user._id,
 			};
 			res.redirect('/private');
+		} catch (err) {
+			next(err);
+		}
+	},
+
+	/**
+	 * POST /login JWT
+	 */
+
+	postJWT: async (req, res, next) => {
+		try {
+			const { email, password } = req.body;
+
+			//search user db
+			const user = await User.findOne({ email });
+			console.log(user);
+
+			//if not exist user
+			if (!user || !(await user.comparePassword(password))) {
+				const error = new Error('Invalid credentials');
+				error.status = 401;
+				next(error);
+				return;
+			}
+
+			//create token JWT
+			jwt.sign(
+				{ _id: user._id },
+				process.env.JWT_SECRET,
+				{ expiresIn: '2h' },
+				(err, jwtToken) => {
+					if (err) {
+						next(err);
+						return;
+					}
+					res.json({ token: jwtToken });
+				}
+			);
 		} catch (err) {
 			next(err);
 		}

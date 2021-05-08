@@ -6,6 +6,7 @@ var logger = require('morgan');
 const session = require('express-session');
 const sessionAuth = require('./lib/sessionAuthMiddleware');
 const loginController = require('./controllers/loginController');
+const MongoStore = require('connect-mongo');
 var app = express();
 //connect to db
 require('./model/connectToMongoose');
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * RUTAS del API
  */
+app.post('/api/loginJWT', loginController.postJWT);
 app.use('/api/advertisements', require('./routes/api/advertisements'));
 // Setup de i18n
 const i18n = require('./lib/i18nConfigure');
@@ -45,6 +47,7 @@ app.use(
 			secure: process.env.NODE_ENV !== 'development',
 			maxAge: 1000 * 60 * 60 * 24 * 2,
 		},
+		store: MongoStore.create({ mongoUrl: process.env.MONGODB_CONNECTION_STR }),
 	})
 );
 

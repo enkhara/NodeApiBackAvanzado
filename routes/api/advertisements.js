@@ -5,7 +5,7 @@ const { get } = require('../../model/connectToMongoose');
 const router = express.Router();
 const Advertisement = require('../../model/Advertisement');
 const { route } = require('..');
-
+const jwtAuth = require('../../lib/jwtAuth');
 module.exports = router;
 
 /**
@@ -14,7 +14,7 @@ module.exports = router;
 
 //api/advertisements
 
-router.get('/', async function (req, res, next) {
+router.get('/', jwtAuth, async function (req, res, next) {
 	try {
 		const name = req.query.name;
 		const sale = req.query.sale;
