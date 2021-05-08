@@ -12,9 +12,9 @@
 
 <body>
     <header>
-        <h1>
-            <%= __('Bienvenid@s a {{title}}', {title}) %>
-        </h1>
+        <a class='title-app' href='/'>
+            <%= title %>
+        </a>
         <div class="languages">
             <% getLocales().forEach( locale=> { %>
                 <a href='/change-locale/<%= locale %>' class='change-language'>
@@ -22,5 +22,12 @@
                 </a>
                 <% }) %>
         </div>
+        <ul class='menu-options'>
+            <li class='menu-item'>
+                <a class='menu-link' href="/login">
+                    <%= __('Login') %>
+                </a>
+            </li>
+        </ul>
 
     </header>

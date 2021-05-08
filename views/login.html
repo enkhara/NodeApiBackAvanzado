@@ -9,13 +9,16 @@
                 <label for="user" class="user-label">
                     <%= __('Email') %>
                 </label>
-                <input class="user-input" type="email" name="email" id="email">
+                <input class="user-input" type="email" name="email" id="email" value=<%=email %> >
             </div>
             <div class="password-form">
                 <label for="password" class="password-label">
                     <%= __('Password') %>
                 </label>
                 <input class="password-input" type="password" name="password" id="password" required>
+            </div>
+            <div class="error-msg">
+                <%= error %>
             </div>
             <button type="submit" class="button">
                 <%= __('Entrar') %>

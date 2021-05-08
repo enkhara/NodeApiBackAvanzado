@@ -1,9 +1,12 @@
 <% include header.html %>
 
   <main>
-    <h1 class="daysAction">
-      <%= __('Que deseas comprar hoy?') %>
+    <h1>
+      <%= __('Bienvenid@s a {{title}}', {title}) %>
     </h1>
+    <h2 class="daysAction">
+      <%= __('Que deseas comprar hoy?') %>
+    </h2>
     <section>
       <div class="grid-container" id="grid-container">
         <%for (advertisement of advertisements){ %>

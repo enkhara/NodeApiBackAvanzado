@@ -36,7 +36,8 @@ app.use(i18n.init);
 //routers
 app.use('/', require('./routes/index'));
 app.use('/change-locale', require('./routes/change-locale'));
-app.use('/login', require('./controllers/loginController'));
+app.get('/login', require('./controllers/loginController').index);
+app.post('/login', require('./controllers/loginController').post);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

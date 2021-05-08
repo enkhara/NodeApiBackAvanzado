@@ -1,49 +1,48 @@
 @import url(./variables.css);
 
-header{
-    background-color: var(--papaya);
-    border-bottom: solid .5rem;
-    border-color: white;
-    padding-left: 2rem;
+header {
+	background-color: var(--papaya);
+	border-bottom: solid 0.5rem;
+	border-color: white;
+	padding-left: 2rem;
 }
 
 body {
-    background-color: var(--blue);
-    margin-top: 5rem;
-    margin-bottom: var(--footer);
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: var(--blue);
+	margin-top: 150px;
+	margin-bottom: var(--footer);
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
-main{
-    max-width: 80%;
-    margin: 0 auto 4rem auto;
-    font-family: textos;
-    /*background-color: white;*/
-    
+main {
+	max-width: 80%;
+	margin: 0 auto 4rem auto;
+	font-family: textos;
+	/*background-color: white;*/
 }
 
 a {
-    color: #00B7FF;
+	color: white;
+	text-decoration: none;
 }
 
-
-li{
-    text-decoration: none;
-    list-style: none;
-    padding-left: .5rem;
+li {
+	text-decoration: none;
+	list-style: none;
+	padding-left: 0.5rem;
 }
 
-section{
-    align-self: center;
+section {
+	align-self: center;
 }
 
-.price{
-    margin-bottom: 0.5rem;
+.price {
+	margin-bottom: 0.5rem;
 }
 
-.daysAction{
-    text-align: center;
-    border-bottom: .4rem dotted var(--papaya) ;
-    color:white;
-    padding-bottom: .5rem;
+.daysAction {
+	text-align: center;
+	border-bottom: 0.4rem dotted var(--papaya);
+	color: white;
+	padding-bottom: 0.5rem;
 }
