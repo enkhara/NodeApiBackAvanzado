@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
+const sessionAuth = require('./lib/sessionAuthMiddleware');
 
 var app = express();
 //connect to db
@@ -56,7 +57,11 @@ app.use('/', require('./routes/index'));
 app.use('/change-locale', require('./routes/change-locale'));
 app.get('/login', require('./controllers/loginController').index);
 app.post('/login', require('./controllers/loginController').post);
-app.get('/private', require('./controllers/privateController').index);
+app.get(
+	'/private',
+	sessionAuth,
+	require('./controllers/privateController').index
+);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
