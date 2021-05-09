@@ -8,6 +8,8 @@ const { route } = require('..');
 const jwtAuth = require('../../lib/jwtAuth');
 module.exports = router;
 
+const multer = require('multer');
+const upload = multer({ dest: 'public/images' });
 /**
  * GET
  */
@@ -77,9 +79,10 @@ router.get('/:id', async (req, res, next) => {
 
 //Created new Advertisement
 
-router.post('/', async (req, res, next) => {
+router.post('/', upload.single('image'), async (req, res, next) => {
 	try {
 		const advertisementData = req.body;
+		advertisementData.image = req.file.originalname;
 
 		const advertisement = new Advertisement(advertisementData);
 		const advertisementCreated = await advertisement.save();
