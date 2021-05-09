@@ -6,6 +6,7 @@ const router = express.Router();
 const Advertisement = require('../../model/Advertisement');
 const { route } = require('..');
 const jwtAuth = require('../../lib/jwtAuth');
+const thumbnailRequester = require('../thumbnails');
 module.exports = router;
 
 const multer = require('multer');
@@ -83,6 +84,9 @@ router.post('/', upload.single('image'), async (req, res, next) => {
 	try {
 		const advertisementData = req.body;
 		advertisementData.image = req.file.originalname;
+		console.log(req.file, 'req file', req.file.path);
+		//thumbnailRequester(req.file.path);
+		thumbnailRequester(advertisementData.image);
 
 		const advertisement = new Advertisement(advertisementData);
 		const advertisementCreated = await advertisement.save();

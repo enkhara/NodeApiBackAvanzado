@@ -5,13 +5,15 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "cross-env PORT=3000 NODE_ENV=development DEBUG=nodepop:* nodemon",
-    "installDB": "node initdb.js"
+    "installDB": "node initdb.js",
+    "thumbnailService": "node ./microServices/thumbnailsServices.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.1",
     "cookie-parser": "~1.4.4",
+    "cote": "^1.0.2",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "dotenv": "^9.0.0",
@@ -21,6 +23,7 @@
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
     "i18n": "^0.13.2",
+    "jimp": "^0.16.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "multer": "^1.4.2"
