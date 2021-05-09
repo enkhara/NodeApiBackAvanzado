@@ -10,7 +10,14 @@ const thumbnailRequester = require('../thumbnails');
 module.exports = router;
 
 const multer = require('multer');
-const upload = multer({ dest: 'public/images' });
+const storage = multer.diskStorage({
+	destination: '/public/images/',
+	filename: function (req, file, cb) {
+		cb(null, file.originalname);
+	},
+});
+
+const upload = multer({ storage: storage });
 /**
  * GET
  */
@@ -84,6 +91,8 @@ router.post('/', upload.single('image'), async (req, res, next) => {
 	try {
 		const advertisementData = req.body;
 		advertisementData.image = req.file.originalname;
+		console.log('anunci', advertisementData);
+		console.log('image', advertisementData.image);
 		console.log(req.file, 'req file', req.file.path);
 		//thumbnailRequester(req.file.path);
 		thumbnailRequester(advertisementData.image);
